@@ -1,16 +1,21 @@
 import React from "react";
 import Person from './Person';
+import data from './data/data.json';
+import './Main.css';
 
 class Main extends React.Component {
   render() {
     return (
-    <>
-    <h2>HELLO 301d97</h2>
-
-    <Person name="HornedBeastOne"/>
-    <Person name="HornedBeastTwo"/>
-   
-    </>
+      <main>
+        {data.map((person,index) => {
+          return <Person 
+          name={person._id} 
+          title={person.title} 
+          image={person.image_url} key={index}
+          description={person.description}
+          />
+        })}
+      </main>
     )
   }
 }
