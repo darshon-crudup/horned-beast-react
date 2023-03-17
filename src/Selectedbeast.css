@@ -1,0 +1,16 @@
+#Modal {
+  border: 2px;
+}
+
+#ModalCard {
+  height: 350px;
+  width: 350px;
+}
+
+#ModalBody {
+  align-content: center;
+}
+
+#ModalText {
+  font-size: 15px;
+}

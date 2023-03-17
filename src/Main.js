@@ -15,6 +15,7 @@ class Main extends React.Component {
           description={person.description}
           addHearts={this.props.addHearts}
           handleOpenModal={this.props.handleOpenModal}
+          handleNameClick={this.props.handleNameClick}
           />
         )  
         })}

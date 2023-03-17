@@ -2,7 +2,6 @@ import React from "react";
 import './Person.css';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-import Modal from 'react-bootstrap/Modal';
 
 class Person extends React.Component {
   constructor(props) {
@@ -21,26 +20,16 @@ console.log('handleFavorite');
   this.props.addHearts()
 }
 
-handleOpenModal = () => {
-  this.setState({
-    showModal: true
-  })
-}  
-
-handleNameClick = () => {
-  this.props.handleOpenModal(this.props.name)
-}
-
   render() {
+    // console.log(this.props.title)
+    // console.log(this.props.description)
     return (
       <Card>
-        <Card.Title onClick={this.handleNameClick}>{this.props.name}</Card.Title>
-        <p>❤️ {this.state.favorites} Favorites</p>
-        <p on Click={this.handleFavorite}>Choose Your Fav!</p>
+        <Card.Title onClick={this.props.handleNameClick}>{this.props.title}</Card.Title>
+        <Card.Text>❤️ {this.state.favorites} Favorites</Card.Text>
+        <Card.Text onClick={this.handleFavorite}>Choose Your Fav!</Card.Text>
         <Card.Img onClick={this.props.addHearts} src={this.props.image} alt={this.props.name} />
-        <p>Title {this.props.title}</p>
-        <p>Description:<br></br> {this.props.description}</p>
-        {/* <img src={this.props.image}alt="animal" style={{width:"200px"}}/> */}
+        <Card.Text>{this.props.description}</Card.Text>
         <Button onClick={this.needsHelp} variant="danger">Help!</Button>
         <Button onClick={this.gotHelp} variant="success">I got help</Button>
       </Card>
