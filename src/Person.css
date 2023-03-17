@@ -12,8 +12,8 @@ article p {
   margin: auto;
   display: inline-block;
   margin-bottom: .5rem;
-  width: 200px;
-  text-align: left;
+  /* width: 200px;
+  text-align: left; */
 }
 article p:last-of-type {
   padding-left: 1rem;
@@ -22,8 +22,8 @@ article p:last-of-type {
 article p:last-of-type:hover {
   color: palevioletred;
 }
-.article-button {
-}
+/* .article-button {
+} */
 
   .card {
     border: 1px solid gray;
@@ -55,7 +55,7 @@ article p:last-of-type:hover {
     margin-bottom: 2.5vw;
   }
   
-  .card>div {
+  /* .card>div {
     height: 2vw;
     text-align: center;
-  }
+  } */

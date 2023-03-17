@@ -3,7 +3,7 @@ import Header from './Header';
 import Main from './Main';
 import Footer from './Footer';
 import data from './data/data.json';
-import Modal from 'react-bootstrap/Modal';
+import Selectedbeast from "./Selectedbeast";
 
 class App extends React.Component {
   constructor(props) {
@@ -28,19 +28,42 @@ class App extends React.Component {
     })
   } 
 
-  handleOpenModal = (name) => {
+  handleOpenModal = (beastTitle) => {
+    const beastSelected = data.find(x => x.title === beastTitle);
+    console.log(beastTitle)
+    console.log(beastSelected)
+
+///MAP THROUGH THE DATA.JSON FILE AND FIND THE BEAST_TITLE THAT MATCHES MY CONSOLE LOGGED beastTitle
+    // let beastForModal=data.map()
+
     this.setState({ 
       showModal: true,
-      selectedbeast: this.state.selectedbeast
+      selectedbeast: beastSelected,
+    },() => {
+      console.log(this.state.selectedbeast)
     })
+    
   } 
+
+  handleNameClick = (e) => {
+    this.handleOpenModal(e.target.textContent);
+  }
 
   render() {
     return (
       <>
     <Header hearts={this.state.hearts} />  
-    <Main beast={this.state.beast} addHearts={this.addHearts} handleOpenModal={this.handleOpenModal} />   
-
+    <Main 
+      beast={this.state.beast} 
+      addHearts={this.addHearts} 
+      handleOpenModal={this.handleOpenModal} 
+      handleNameClick={this.handleNameClick}
+    />   
+    <Selectedbeast
+    selectedbeast={this.state.selectedbeast}
+    showModal={this.state.showModal}
+    close={this.handleCloseModal}
+    />
     <Footer />
     </>
     )
